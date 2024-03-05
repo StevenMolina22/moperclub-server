@@ -59,7 +59,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware', # needs to be active for static files in production
+    'whitenoise.middleware.WhiteNoiseMiddleware', # needs to be active for static files in production
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware", # corsheaders
     'django.middleware.common.CommonMiddleware',
@@ -167,7 +167,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-MEDIA_ROOT = '/media/'
 # STATIC_ROOT = "staticfiles"
 
 # creating the url for the images
@@ -175,11 +174,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # just to be sure
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),
+    os.path.join(BASE_DIR, 'static'),
 ]
-# STATIC_DIRS = (
-#   os.path.join(BASE_DIR, 'static')
-# )
+STATIC_DIRS = (
+  os.path.join(BASE_DIR, 'static')
+)
 
 try: 
   from .local_settings import DATABASES, DEBUG
