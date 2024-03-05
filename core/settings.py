@@ -174,11 +174,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # just to be sure
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static_cdn'),
 ]
-STATIC_DIRS = (
-  os.path.join(BASE_DIR, 'static')
-)
+# STATIC_DIRS = (
+#   os.path.join(BASE_DIR, 'static_cdn')
+# )
 
 try: 
   from .local_settings import DATABASES, DEBUG
