@@ -25,7 +25,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic' # needed in production for static f
+    # 'whitenoise.runserver_nostatic' # needed in production for static f
     'coreapi',
 		'corsheaders',
     'rest_framework',
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # needs to be active for static files in production
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', # needs to be active for static files in production
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware", # corsheaders
     'django.middleware.common.CommonMiddleware',
