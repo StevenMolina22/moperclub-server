@@ -5,7 +5,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent # django default setting
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # heroku setting
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # heroku setting
 
 
 # Quick-start development settings - unsuitable for production
@@ -155,7 +155,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # setting up the url for the static an img files
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" # heroku setting
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" # heroku setting
 # STATIC_ROOT = "staticfiles"
 
 # creating the url for the images
