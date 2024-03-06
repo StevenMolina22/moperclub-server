@@ -1,5 +1,6 @@
 # views.py
 from django.http import JsonResponse
+from django.contrib.sites.shortcuts import get_current_site  # Import get_current_site
 from .utils import get_featured_instances
 
 def get_featured_data(request):  
@@ -13,7 +14,7 @@ def get_featured_data(request):
           'name': instance.name,
           'description': instance.description,
           'address': instance.address,
-          'image': instance.image.url if instance.image else None,  # Get the URL of the image file
+          'image': f"http://127.0.0.1:8000{instance.image.url}"  if instance.image else "",  # Get the URL of the image file
       }
       serialized_instances.append(seriealized_instance)
 

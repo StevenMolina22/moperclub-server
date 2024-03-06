@@ -2,6 +2,7 @@ from events.models import Event
 from establishments.models import Establishment
 from places.models import Place
 
+# this is provisional, to be changed later for a more robust approach with better pk's
 def get_featured_instances():
   # get featured instances in each table
   featured_events = Event.objects.filter(is_featured=True)
