@@ -1,14 +1,13 @@
 from django.db import models
 from categories.models import Category
 from phonenumber_field.modelfields import PhoneNumberField
-
+ 
 
 # to create a new table
-class Place(models.Model):
+class Place(models.Model): 
 	# to create the columns headings
   name = models.CharField(max_length=255)
   description = models.TextField()
-  is_featured = models.BooleanField(default = False)
   email = models.EmailField(blank=True, null=True)
   # location = models.PointField # for later on 
   address = models.CharField(max_length=255, null=True)
@@ -16,6 +15,7 @@ class Place(models.Model):
   image = models.ImageField(upload_to="media", blank=True, default=None)
   # disconts = models.ManyToManyRel()
   category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+  is_featured = models.BooleanField(default = False)
   is_available = models.BooleanField(default = True)
 
 	# to put the name as the element displayed name

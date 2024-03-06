@@ -8,10 +8,11 @@ class Event(models.Model):
   # location = models.PointField()
   address = models.CharField(max_length=255)
   start_date = models.DateField()
-  end_date = models.DateField(null=True, blank=True)
+  end_date = models.DateField(null=True, blank=True) 
   website = models.URLField(null=True, blank=True)
   phone_number = models.CharField(max_length=255, null=True, blank=True)
   # email = models.ForeignKey
-  image = models.ImageField(upload_to="", null=True, blank=True)
+  image = models.ImageField(upload_to="media", null=True, blank=True)
+  is_featured = models.BooleanField(default = False)
   def __str__(self):
     return self.name

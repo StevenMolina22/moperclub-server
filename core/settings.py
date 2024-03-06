@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'coreapi',
 		'corsheaders',
     'rest_framework',
-    'phonenumber_field',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +43,8 @@ INSTALLED_APPS = [
     'users',
     'blog',
     'home',
+    'utils',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

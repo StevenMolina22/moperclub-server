@@ -15,5 +15,6 @@ urlpatterns = [
     path('establishments/', include("establishments.urls")),
     path('categories/', include("categories.urls")),
     path('blog/', include("blog.urls")),
+    path('api/', include("utils.urls")),
     path('docs/', include_docs_urls(title = "Docs API")),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
