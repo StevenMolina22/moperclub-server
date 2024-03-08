@@ -26,7 +26,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     # 'whitenoise.runserver_nostatic' # needed in production for static f
-    'coreapi',
+    # 'coreapi',
 		'corsheaders',
     'rest_framework',
     'django.contrib.admin',
