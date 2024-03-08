@@ -14,7 +14,7 @@ class Establishment(models.Model):
   phone_number = PhoneNumberField(blank=True)
   email = models.EmailField(blank=True, null=True)
   image = models.ImageField(upload_to="media", blank=True, null=True)
-  is_featured = models.BooleanField(default = False)
+  # is_featured = models.BooleanField(default = False)
   # fk for the apps
   category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
 
