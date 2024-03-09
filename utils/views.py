@@ -15,7 +15,7 @@ def get_featured_data(request):
           'id': instance.id,
           'name': instance.name,
           'description': instance.description,
-          'address': instance.address,
+          'address': instance.address, #
           'image': f"{server_hosted}{instance.image.url}"  if instance.image else "",  # Get the URL of the img file dist
           # 'image': f"{server_local}{instance.image.url}"  if instance.image else "",  # Get the URL of the img file dev
       }
