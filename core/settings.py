@@ -171,7 +171,7 @@ STATIC_DIRS = (
   os.path.join(BASE_DIR, 'static')
 )
 
-try: 
-  from .local_settings import DATABASES, DEBUG
-except ImportError as Error:
-  print("Error:", Error.msg)
+# try: 
+#   from .local_settings import DATABASES, DEBUG
+# except ImportError as Error:
+#   print("Error:", Error.msg)
