@@ -16,7 +16,7 @@ class Place(models.Model):
   # disconts = models.ManyToManyRel()
   category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
   is_featured = models.BooleanField(default = False)
-  is_available = models.BooleanField(default = True)
+  is_available = models.BooleanField(default = True, null=True, blank=True)
 
 	# to put the name as the element displayed name
   def __str__(self):
