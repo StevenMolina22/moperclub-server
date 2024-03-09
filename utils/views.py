@@ -4,7 +4,7 @@ from django.contrib.sites.shortcuts import get_current_site  # Import get_curren
 from .utils import get_featured_instances
 
 def get_featured_data(request): 
-    server_hosted = "http://moperclub-server-v2.vercel.app.com" 
+    server_hosted = "https://moperclub-server-v2.vercel.app.com" 
     server_local = "http://127.0.0.1:8000"
     featured_instances = get_featured_instances()
 
