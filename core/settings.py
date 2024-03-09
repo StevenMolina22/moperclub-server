@@ -149,7 +149,8 @@ REST_FRAMEWORK = {
 
 # for connecting front and back
 CORS_ALLOWED_ORIGINS = [
-	"http://localhost:5173"
+	"http://localhost:5173",
+  "https://moperclub-client.vercel.app/",
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
