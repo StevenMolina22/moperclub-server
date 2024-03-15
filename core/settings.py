@@ -10,6 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent # django default setting
 
 load_dotenv()
 
+
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 ALLOWED_HOSTS = [os.environ.get('HOST_PRODUCTION'), 'localhost', '127.0.0.1', '.vercel.app']
