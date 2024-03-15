@@ -10,19 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent # django default setting
 
 load_dotenv()
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get("SECRET_KEY")
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
-DEBUG = True
-
-# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-# Application definition
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 INSTALLED_APPS = [
     # 'whitenoise.runserver_nostatic' # needed in production for static f
