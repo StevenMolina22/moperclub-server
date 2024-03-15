@@ -1,27 +1,27 @@
 
 import dj_database_url
 from pathlib import Path
+from dotenv import load_dotenv
 import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent # django default setting
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # heroku setting
 
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.environ.get("SECRET_KEY")
-SECRET_KEY = 'django-insecure-2mf9u_3ez42$zh+q^7dp%&f!fvrk7s$(*#&-329f_3ae!1bypt'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 DEBUG = True
 
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
-ALLOWED_HOSTS = ["*"]
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "storages",
     'establishments',
     'categories',
     'products',
@@ -81,24 +82,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'moperclub',
-        'USER': 'postgres',
-        'PASSWORD': 'moper2712',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
 }
-
 # database_url = os.environ.get("DATABASE_URL")
-database_url_render = "postgres://moperclub_postgresql_database_user:BOszy84qv6Pr8gNDFpRoju5V7840ipSx@dpg-cnfnjn2cn0vc73ari7fg-a.oregon-postgres.render.com/moperclub_postgresql_database"
-database_url_heroku = "postgres://ueg44p26gpk9sl:pa6b66fc63e8be9b7747b1d07ae9eaf1da1ac94872f49d4b9b5e7820ecadb0d34@ceu9lmqblp8t3q.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d9n60gekl7j738"
-DATABASES['default'] = dj_database_url.parse(database_url_heroku)
+DATABASES['default'] = dj_database_url.parse(os.environ.get("HEROKU_DB_URL"))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -149,8 +136,8 @@ REST_FRAMEWORK = {
 
 # for connecting front and back
 CORS_ALLOWED_ORIGINS = [
-	"http://localhost:5173",
-  "https://moperclub-client.vercel.app",
+	os.environ.get("LOCAL_CLIENT_HOST"),
+  os.environ.get("PRODUCTION_CLIENT_HOST"),
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
