@@ -83,6 +83,21 @@ DATABASES = {
 # database_url = os.environ.get("DATABASE_URL")
 DATABASES['default'] = dj_database_url.parse(os.environ.get("HEROKU_DB_URL"))
 
+
+# --- AWS configuration
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+# -- aws storage configuration
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+# AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_FILE_OVERWRITE = False
+
+# -- S3 Buckets configuration
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE  = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -147,7 +162,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # creating the url for the images
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# to custom static files 
+# ---- for custom static files 
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'static'),
 # ]
