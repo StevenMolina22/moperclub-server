@@ -172,7 +172,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #   os.path.join(BASE_DIR, 'static')
 # )
 
-# try: 
-#   from .local_settings import DATABASES, DEBUG
-# except ImportError as Error:
-#   print("Error:", Error.msg)
+try: 
+  from .local_settings import DATABASES, DEBUG
+except ImportError as Error:
+  print("Error:", Error.msg)
