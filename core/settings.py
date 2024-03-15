@@ -17,7 +17,7 @@ ALLOWED_HOSTS = [os.environ.get('HOST_PRODUCTION'), 'localhost', '127.0.0.1', '.
 # ALLOWED_HOSTS = ["*"]
 
 # DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = os.environ.get('DEBUG', 'False') == 'True' # decided on vercel
 
 
 INSTALLED_APPS = [
