@@ -12,10 +12,12 @@ load_dotenv()
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-ALLOWED_HOSTS = [os.environ.get('HOST_PRODUCTION'), 'localhost', '127.0.0.1', '.vercel.app']
+# ALLOWED_HOSTS = [os.environ.get('HOST_PRODUCTION'), 'localhost', '127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ["*"]
 
 # DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+# DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = True
 
 INSTALLED_APPS = [
     # 'whitenoise.runserver_nostatic' # needed in production for static f
