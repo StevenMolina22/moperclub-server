@@ -18,7 +18,7 @@ ALLOWED_HOSTS = [os.environ.get('HOST_PRODUCTION'), 'localhost', '127.0.0.1', '.
 
 # DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-# DEBUG = True
+
 
 INSTALLED_APPS = [
     # 'whitenoise.runserver_nostatic' # needed in production for static f
@@ -141,7 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # setting up the url for the static an img files
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" # heroku setting
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage" # heroku  static files setting
 # STATIC_ROOT = "staticfiles"
 
 # creating the url for the images
