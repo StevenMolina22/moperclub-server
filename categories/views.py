@@ -3,5 +3,5 @@ from .serializer import CategorySerializer
 from .models import Category
 
 class CategoryView(viewsets.ModelViewSet):
-  serializer_class = CategorySerializer
-  queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    queryset = Category.objects.all()

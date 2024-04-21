@@ -16,6 +16,7 @@ idna==3.6
 itypes==1.2.0
 Jinja2==3.1.3
 jmespath==1.0.1
+localflavor==1.9
 MarkupSafe==2.1.5
 packaging==23.2
 phonenumbers==8.13.30

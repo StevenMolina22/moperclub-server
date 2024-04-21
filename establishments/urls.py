@@ -7,5 +7,5 @@ router = routers.DefaultRouter()
 router.register(r'establishments', views.EstablishmentView, 'establishment')
 
 urlpatterns = [
-  path('api/', include(router.urls))
+    path('api/', include(router.urls))
 ]

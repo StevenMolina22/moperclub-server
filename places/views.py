@@ -3,5 +3,5 @@ from .serializer import PlaceSerializer
 from .models import Place
 
 class PlaceView(viewsets.ModelViewSet):
-  serializer_class = PlaceSerializer
-  queryset = Place.objects.all()
+    serializer_class = PlaceSerializer
+    queryset = Place.objects.all()

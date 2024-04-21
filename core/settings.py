@@ -4,27 +4,29 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# --- The base directory for the project (Needs to be adapted for dev and production)
 BASE_DIR = Path(__file__).resolve().parent.parent # django default setting
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) # heroku setting
 
 load_dotenv()
 
-
+# --- The secret key for the project (tokens and more)
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# --- The hosts allowed to connect to the project (Needs to be adapted for dev and production)
 ALLOWED_HOSTS = [os.environ.get('HOST_PRODUCTION'), 'localhost', '127.0.0.1', '.vercel.app']
-# ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ["*"] # other option
 
 # DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 DEBUG = os.environ.get('DEBUG', 'False') == 'True' # decided on vercel
 
-
+# --- The application definition
 INSTALLED_APPS = [
     # 'whitenoise.runserver_nostatic' # needed in production for static f
     'coreapi',
-		'corsheaders',
+	'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     # 'django.contrib.sites' # for getting the current host
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'home',
     'utils',
     'phonenumber_field',
+    'localflavor',
 ]
 SITE_ID = 1
 MIDDLEWARE = [
@@ -75,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+ 
 
 
 DATABASES = {
@@ -138,17 +141,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 
-# for the docs
+# --- for rest framework
 REST_FRAMEWORK = {
     # ...: ...,
-    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema", # for the docs
 }
 
 
 # for connecting front and back
 CORS_ALLOWED_ORIGINS = [
 	os.environ.get("LOCAL_CLIENT_HOST"),
-  os.environ.get("PRODUCTION_CLIENT_HOST"),
+    os.environ.get("PRODUCTION_CLIENT_HOST"),
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -170,7 +173,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #   os.path.join(BASE_DIR, 'static')
 # )
 
+# use local settings for local development if available
 try: 
-  from .local_settings import DATABASES, DEBUG
+    from .local_settings import DATABASES, DEBUG
 except ImportError as Error:
-  print("Error:", Error.msg)
+    print("Error:", Error.msg)

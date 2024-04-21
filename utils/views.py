@@ -8,17 +8,17 @@ def get_featured_data(request):
     server_local = "http://127.0.0.1:8000"
     featured_instances = get_featured_instances()
 
-    # serialize each instance into a dictionary
+    # Serialize each instance into a dictionary
     serialized_instances = []
     for instance in featured_instances:
-      seriealized_instance = {
-          'id': instance.id,
-          'name': instance.name,
-          'description': instance.description,
-          'address': instance.address, #
-          'image': f"{server_hosted}{instance.image.url}"  if instance.image else "",  # Get the URL of the img file dist
-          # 'image': f"{server_local}{instance.image.url}"  if instance.image else "",  # Get the URL of the img file dev
-      }
-      serialized_instances.append(seriealized_instance)
+        serialized_instance = {
+            'id': instance.id,
+            'name': instance.name,
+            'description': instance.description,
+            'address': instance.address, #
+            'image': f"{server_hosted}{instance.image.url}"  if instance.image else "",  # Get the URL of the img file dist
+            # 'image': f"{server_local}{instance.image.url}"  if instance.image else "",  # Get the URL of the img file dev
+        }
+        serialized_instances.append(serialized_instance)
 
     return JsonResponse({'featured_instances': serialized_instances})

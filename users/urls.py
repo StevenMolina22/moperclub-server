@@ -7,5 +7,7 @@ router.register(r'userprofiles', views.UserProfileView , 'userprofile') # r'' =>
 
 urlpatterns = [
     # uses rest router func views
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('login/', views.login),
+    path('register/', views.register),
 ]

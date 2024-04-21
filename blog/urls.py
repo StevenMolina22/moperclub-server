@@ -8,5 +8,5 @@ router.register(r'posts', views.PostView, 'post')
 router.register(r'comments', views.CommentView, 'comment')
 
 urlpatterns = [
-  path('api/', include(router.urls))
+    path('api/', include(router.urls))
 ]
