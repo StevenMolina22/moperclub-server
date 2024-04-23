@@ -31,7 +31,7 @@ def login(request):
     serializer = UserSerializer(instance=user)
 
     # Return token
-    return Response({'key': token.key, "user": serializer.data}, status=status.HTTP_200_OK)
+    return Response({"token": token.key, "user": serializer.data}, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
